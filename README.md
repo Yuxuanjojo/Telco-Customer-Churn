@@ -10,5 +10,4 @@ The data for this case comes from the modeling dataset which is shared on Kaggle
 ## Target ##
 - Analyze the relationship between user characteristics and churn.
 - From the overall situation, what are the common characteristics of lost users?
-- Try to find a suitable model to predict churn users.
 - Provide targeted suggestions to increase user stickiness and prevent loss.
