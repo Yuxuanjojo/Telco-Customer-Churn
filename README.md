@@ -22,7 +22,10 @@ After getting the data, the first step is data cleaning, which mainly includes r
 ## Analysis process ##
 The correlation between the different dimensions is calculated by .corr().
 According to the available data, there are 19 dimensions for each user to analyze, which can be roughly divided into three categories: personal information, account information, and product information.
-## By ranking the correlation coefficients, it can be seen that there are some dimensions that have no significant effect on user churn under different data categories ##
+## By ranking the correlation coefficients, it can be seen that there are some dimensions that have no significant effect on user churn under different data categories ## 对于多个维度叠加下的用户，流失原因主要在哪里
 
 ## Predict ##
 Since there are a total of 19 features that may affect user stickiness, the random forest model is chosen here for analysis. Since there is only one table and no data for training and testing the model, the data is splited into training and testing classes by train_test_split(X, y,random_state = 0), fit the model by .fit(train_X, train_y). finally check the reliablity by .score(train_X, train_y). seems that this is a good model to predict the churn of customers.
+
+## Suggestion to increase user stickiness ##
+对于不同画像的用户有不用的维系方式，比如对于老人提高对tech的支持以及减少捆绑销售，对于年轻用户重点推送套餐，以及合同等
