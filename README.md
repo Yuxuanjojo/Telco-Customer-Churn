@@ -25,4 +25,4 @@ According to the available data, there are 19 dimensions for each user to analyz
 ## By ranking the correlation coefficients, it can be seen that there are some dimensions that have no significant effect on user churn under different data categories ##
 
 ## Predict ##
-Since there are a total of 19 features that may affect user stickiness, the random forest model is chosen here for analysis. Since there is only one table and no data for training and testing the model, the data is first partitioned into training and testing classes, and then begin to modele.
+Since there are a total of 19 features that may affect user stickiness, the random forest model is chosen here for analysis. Since there is only one table and no data for training and testing the model, the data is splited into training and testing classes by train_test_split(X, y,random_state = 0), fit the model by .fit(train_X, train_y). finally check the reliablity by .score(train_X, train_y). seems that this is a good model to predict the churn of customers.
