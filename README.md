@@ -16,8 +16,26 @@ The data for this case comes from the modeling dataset which is shared on Kaggle
 After getting the data, the first step is data cleaning, which mainly includes removing duplicate values, removing outliers, filling nulls and converting data types.
 - For duplicate data, since each user has a unique code, it is sufficient to check for duplicate user codes.
 - For outliers, check if there are values that are not at the mean plus or minus three times the standard deviation, and if so, they are considered to be outliers. 
+
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
+</p>  
+
 - For null values, simply using pd.isnull() can not ensure that all null values will be found, as there may be cases where the null value is represented by a symbol such as " " or "-". So I first converted the data from "object" to "float64", found the line that reported the error, and then checked it and found that there was indeed “totalcharge” were missing value and represented by " ". 
+
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
+</p>  
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
+</p>  
+
 - For the existence of empty value of the line, I sorted out and found that their tenure are 0, that is to say, these users are new users of the month of statistics, for the analysis of user churn is not very meaningful, and accounted for very little, only 11 users, so directly delete these data.
+
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
+</p>  
+
 - When converting data types, the discrete data is mainly converted to 0 and 1 by pd.get_dummies().
 
 ## Analysis process ##
