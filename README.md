@@ -18,23 +18,23 @@ After getting the data, the first step is data cleaning, which mainly includes r
 - For outliers, check if there are values that are not at the mean plus or minus three times the standard deviation, and if so, they are considered to be outliers. 
 
 <p align="center">
-  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
+  <img src="https://github.com/Yuxuanjojo/Telco-Customer-Churn/blob/main/Image/outlier_check.png?raw=true" width="600px">   
+</p>  
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Telco-Customer-Churn/blob/main/Image/range.png?raw=true" width="300px">    
 </p>  
 
 - For null values, simply using pd.isnull() can not ensure that all null values will be found, as there may be cases where the null value is represented by a symbol such as " " or "-". So I first converted the data from "object" to "float64", found the line that reported the error, and then checked it and found that there was indeed “totalcharge” were missing value and represented by " ". 
 
 <p align="center">
-  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
-</p>  
-<p align="center">
-  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
-</p>  
+  <img src="https://github.com/Yuxuanjojo/Telco-Customer-Churn/blob/main/Image/null_check.png?raw=true" width="500px">    
+</p>    
 
 - For the existence of empty value of the line, I sorted out and found that their tenure are 0, that is to say, these users are new users of the month of statistics, for the analysis of user churn is not very meaningful, and accounted for very little, only 11 users, so directly delete these data.
 
 <p align="center">
-  <img src="https://github.com/Yuxuanjojo/Predict_future_sales/blob/main/img_predict/dataset_review1.png?raw=true" width="400px">    
-</p>  
+  <img src="https://github.com/Yuxuanjojo/Telco-Customer-Churn/blob/main/Image/null_value.png?raw=true" width="1600px">    
+</p>
 
 - When converting data types, the discrete data is mainly converted to 0 and 1 by pd.get_dummies().
 
@@ -59,6 +59,10 @@ customers with fiber optics service are more likely to churn than they have othe
 
 ## Predict ##
 Since there are a total of 19 features that may affect user stickiness, the random forest model is chosen here for analysis. Since there is only one table and no data for training and testing the model, the data is splited into training and testing classes by train_test_split(X, y,random_state = 0), fit the model by .fit(train_X, train_y). finally check the reliablity by .score(train_X, train_y). seems that this is a good model to predict the churn of customers.
+
+<p align="center">
+  <img src="https://github.com/Yuxuanjojo/Telco-Customer-Churn/blob/main/Image/corr.png?raw=true" width="600px">    
+</p>  
 
 ## Suggestion to increase user stickiness ##
 According to the above analysis, it can be seen that young people and economically independent people have higher loyalty, and users with long contract time and low monthly charge have higher loyalty. Few users without internet services have higher loyalty, while users with internet services are very highly regarded for online security, tech support, online backup and device protection. Especially for senior customers without partners, technical support is the main factor leading to the loss of users. On another hand, users with fiber have a higher possibility to churn.
